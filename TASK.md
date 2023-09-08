@@ -1,5 +1,5 @@
 ## Kindle application
-### Task: Build a backend system in python for a kindle application. The assumptions, requirements and the task details are mentioned below.
+### Task: Build a basic python flask application for a kindle app. The assumptions, requirements and the task details are mentioned below.
 
 ### Features to implement:
 1. Add a new book to the library
@@ -31,3 +31,8 @@
 4. Feel free to add / update the model class and the database fields as necessary. Please do not delete any existing field(s)
 
 5. Feel free to add more books to the database. Please do not delete any existing book(s)
+
+### Evaluation
+1. The app should be able to run on localhost port 5000 (default port for a python flask application)
+
+2. The APIs will be invoked through postman and tested
