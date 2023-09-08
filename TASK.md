@@ -4,7 +4,7 @@
 ### Features to implement:
 1. Add a new book to the library
 
-2. Return the page number of the last read page of a book
+2. Return the last read page number of a book
 
 3. Return metadata of a book: title, author, year, language, percentage of book read and last read page number. All as a single json
 
