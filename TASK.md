@@ -27,7 +27,7 @@
 
 5. The front-end is a kindle device that will use this backend system to render the books
 
-6. The data.json file is the global kindle library.
+6. The `data.json` file is the global kindle library.
 
 ### Supporting Information
 
