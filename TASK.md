@@ -14,6 +14,8 @@
 
 6. Add a data access layer to the system
 
+7. Containerize the application using Docker
+
 ### You may assume that
 1. A user is already created and authenticated
 
@@ -28,13 +30,12 @@
 6. The data.json file is the global kindle library.
 
 ### Supporting Information
-1. The initial framework is built for you. It follows an n-tier architecture (2 layers)
 
-2. Please note that you are building a backend system that will be deployed to the cloud. You need to build the APIs and functionalities for the features mentioned above
+1. Please note that you are building a backend system that will be deployed to the cloud. You need to build the APIs and functionalities for the features mentioned above
 
-3. Feel free to add / update the model class and the database fields as necessary. Please do not delete any existing field(s)
+2. Feel free to add / update the model class and the database fields as necessary. Please do not delete any existing field(s)
 
-4. Feel free to add more books to the database. Please do not delete any existing book(s)
+3. Feel free to add more books to the database. Please do not delete any existing book(s)
 
 ### Evaluation
 1. The app should be able to run on localhost port 5000 (default port for a python flask application)
