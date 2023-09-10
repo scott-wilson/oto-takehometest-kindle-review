@@ -62,7 +62,7 @@ def add_book_user(uuid, global_library, user_library):
 
     add_book = kindle_model.Book.from_json(found_global[0])
     user_library.add_book(add_book)
-    return {"status": "success", "book": found_global}
+    return {"status": "success", "book added": found_global}
 
 
 def add_book_global(uuid, data, global_library):
@@ -76,7 +76,7 @@ def add_book_global(uuid, data, global_library):
         }
     new_book = kindle_model.Book.from_dict(data)
     global_library.add_book(new_book)
-    return {"status": "success", "book": data}
+    return {"status": "success", "book added": data}
 
 
 def subtract_book_user(uuid, user_library):
@@ -90,7 +90,11 @@ def subtract_book_user(uuid, user_library):
         }
 
     user_library.remove_book(uuid)
-    return {"status": "success", "remaining_books": user_library.list_books()}
+    return {
+        "status": "success",
+        "book removed": found_user,
+        "remaining_books": user_library.list_books(),
+    }
 
 
 def find_top_book_user(user_library, target=None):
