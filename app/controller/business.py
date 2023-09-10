@@ -26,7 +26,7 @@ def find_book(key, value, library, target=None):
         }
 
     # Initialize the Library object from the kindle_model with the given user_library
-    user_library = kindle_model.Library(user_library)
+    library = kindle_model.Library(library)
 
     # Search for books that match the given key-value criteria in the library
     found = library.find_books(**{key: value})
@@ -115,9 +115,16 @@ def find_top_book_user(user_library, target=None):
         return {"status": "failed", "reason": "No books in user's library."}
 
     # Sort the books based on the target attribute, in descending order
-    sorted_books = sorted(
-        books_user, key=lambda x: x.get(target, float("-inf")), reverse=True
-    )
+    def sort_key(book):
+        value = book.get(target)
+        if value is None:
+            return (
+                float("-inf") - 1
+            )  # This ensures that None values are treated as less than any float
+        return value
+
+    sorted_books = sorted(books_user, key=sort_key, reverse=True)
+
     return {"status": "success", f"highest_value: {target}": sorted_books[0]}
 
 

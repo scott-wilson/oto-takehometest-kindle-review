@@ -87,6 +87,4 @@ allowed_keys = [
   - `page_number`: The page number to update.
 - **Description**: Updates the last read page number for a specific book in the user's library.
 
-```
-
-```
+## Kindle Backend API Documentation
