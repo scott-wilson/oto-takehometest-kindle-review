@@ -7,12 +7,13 @@ EXPOSE 5000
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY "./app" /app
-COPY "./user_library" /app
-COPY "./requirements.txt" /app
-COPY "./data.json" /app
+COPY "./app" ./app
+COPY "./user_library" ./user_library
+COPY "./requirements.txt" .
+COPY "./data.json" .
+COPY "./main.py" .
 
-# Install dependencies listed in a requirements.txt file, 
+# Install dependencies listed in a requirements.txt file
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run main.py when the container launches

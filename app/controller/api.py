@@ -9,4 +9,4 @@ def start():
     # Register routes
     routes.register_routes(app)
 
-    app.run(debug=True)
+    app.run()
