@@ -8,21 +8,20 @@ All API requests are made to `http://localhost:5000/`
 
 ### Endpoints:
 
+#### Keys:
 ```
-allowed_keys = [
-        "pages",
-        "year",
-        "last_read_page",
-        "percentage_read",
-        "last_read_date",
-        "author",
-        "country",
-        "imageLink",
-        "language",
-        "link",
-        "title",
-        "uuid",
-   ]
+"pages",
+"year",
+"last_read_page",
+"percentage_read",
+"last_read_date",
+"author",
+"country",
+"imageLink",
+"language",
+"link",
+"title",
+"uuid"
 ```
 
 #### 1. Get a Book from the Global Library:
