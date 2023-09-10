@@ -9,7 +9,7 @@
 		{
 			"name": "Add book to user library",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"url": {
 					"raw": "54.224.154.114:5000/user/library/add/<uuid>",
