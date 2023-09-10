@@ -9,4 +9,6 @@ def start():
     # Register routes
     routes.register_routes(app)
 
-    app.run()
+    from waitress import serve
+
+    serve(app, host="0.0.0.0", port=5000)
