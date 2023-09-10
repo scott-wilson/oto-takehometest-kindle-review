@@ -24,8 +24,6 @@ allowed_keys = [
         "uuid",
    ]
 ```
- 
-
 
 #### 1. Get a Book from the Global Library:
 
@@ -72,13 +70,13 @@ allowed_keys = [
   - `uuid`: Unique identifier of the book.
 - **Description**: Removes a book from the user's library.
 
-#### 6. Get the Last Read Book from the User Library:
+#### 6. Get the highest value of the specified target from the User Library:
 
 - **URL**: `/user/library/top/<target>`
 - **Method**: `GET`
 - **Parameters**:
   - `target` (Optional): Specific attribute of the book to retrieve (e.g., "title", "author").
-- **Description**: Retrieves the last read book from the user's library. If a target is provided, only that attribute of the book will be returned.
+- **Description**: Retrieves the target with the highest value from the user's library. If a target is provided, only that attribute of the book will be returned.
 
 #### 7. Update the Last Read Page of a Book in the User Library:
 
@@ -88,4 +86,7 @@ allowed_keys = [
   - `uuid`: Unique identifier of the book.
   - `page_number`: The page number to update.
 - **Description**: Updates the last read page number for a specific book in the user's library.
-````
+
+```
+
+```
