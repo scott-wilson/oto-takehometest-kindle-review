@@ -4,7 +4,11 @@ This API is designed for managing books in a Kindle application. The API allows 
 
 ### Base URL:
 
-All API requests are made to `http://localhost:5000/`
+Local Server:
+http://localhost:5000/ 
+
+AWS Server:
+http://54.224.154.114:5000/ 
 
 ### Endpoints:
 
