@@ -8,7 +8,8 @@ All API requests are made to `http://localhost:5000/`
 
 ### Endpoints:
 
-````allowed_keys = [
+```
+allowed_keys = [
         "pages",
         "year",
         "last_read_page",
@@ -21,7 +22,10 @@ All API requests are made to `http://localhost:5000/`
         "link",
         "title",
         "uuid",
-    ]```
+   ]
+```
+ 
+
 
 #### 1. Get a Book from the Global Library:
 
