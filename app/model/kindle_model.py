@@ -18,7 +18,7 @@ class Book:
         book_uuid: Optional[str] = None,
         last_read_page: Optional[int] = 0,
         percentage_read: Optional[float] = 0.0,
-        last_read_date: Optional[int] = None,
+        last_read_date: Optional[float] = None,
     ):
         self.author = author
         self.country = country
@@ -28,27 +28,10 @@ class Book:
         self.pages = pages
         self.title = title
         self.year = year
-        self.uuid = book_uuid if book_uuid else str(uuid.uuid4())
+        self.uuid = book_uuid
         self.last_read_page = last_read_page
         self.percentage_read = percentage_read
         self.last_read_date = last_read_date
-
-    @classmethod
-    def from_dict(cls, data: Dict) -> "Book":
-        try:
-            return cls(
-                author=data["author"],
-                country=data["country"],
-                image_link=data["imageLink"],
-                language=data["language"],
-                link=data["link"],
-                pages=data["pages"],
-                title=data["title"],
-                year=data["year"],
-                book_uuid=data.get("uuid"),
-            )
-        except KeyError as e:
-            raise ValueError(f"Missing key for creating a Book instance: {e}")
 
     @classmethod
     def from_json(cls, json_data: Union[str, Dict]) -> "Book":
@@ -63,10 +46,10 @@ class Book:
                 pages=data["pages"],
                 title=data["title"],
                 year=data["year"],
-                book_uuid=data.get("uuid"),
+                book_uuid=data.get("uuid", None),
                 last_read_page=data.get("last_read_page", 0),
                 percentage_read=data.get("percentage_read", 0.0),
-                last_read_date=data.get("last_read_date"),
+                last_read_date=data.get("last_read_date", 0.0),
             )
         except (json.JSONDecodeError, KeyError) as e:
             raise ValueError(f"Invalid JSON data for creating a Book instance: {e}")
@@ -96,6 +79,10 @@ class ExtendedBook(Book):
         """Update the last read date."""
         self.last_read_date = datetime.now().timestamp()
 
+    def update_uuid(self) -> None:
+        """Update the uuid."""
+        self.uuid = str(uuid.uuid4())
+
     def update_last_read_page(self, last_read_page: int) -> None:
         """Update the last read page and calculate the reading percentage."""
         self.last_read_page = last_read_page
@@ -112,7 +99,19 @@ class Library:
         try:
             with open(self.data_file, "r") as f:
                 data = json.load(f)
-            return [ExtendedBook.from_json(book) for book in data]
+            books = [ExtendedBook.from_json(book) for book in data]
+
+            # Assign the processed books to self.books
+            self.books = books
+            updated = False
+            for book in self.books:
+                if book.uuid == None:
+                    book.update_uuid()
+                    updated = True
+
+            if updated == True:
+                self.save_library()
+            return self.books
         except json.JSONDecodeError:
             return []
 

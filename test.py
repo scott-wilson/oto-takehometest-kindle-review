@@ -10,14 +10,14 @@ class BookRoutesTestCase(unittest.TestCase):
         self.client = self.app.test_client()
 
     def test_add_book_user(self):
-        response = self.client.get(
-            "/user/library/add/uuid/ba6601d9-6b30-4287-a0d4-5737ea943294"
+        response = self.client.put(
+            "/user/library/add/ba6601d9-6b30-4287-a0d4-5737ea943294"
         )
         self.assertEqual(response.status_code, 200)
 
     def test_remove_book_user(self):
-        response = self.client.get(
-            "/user/library/remove/uuid/ba6601d9-6b30-4287-a0d4-5737ea943294"
+        response = self.client.delete(
+            "/user/library/remove/ba6601d9-6b30-4287-a0d4-5737ea943294"
         )
         self.assertEqual(response.status_code, 200)
 

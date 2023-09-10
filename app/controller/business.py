@@ -81,9 +81,13 @@ def add_book_global(uuid, data, global_library):
 
 def subtract_book_user(uuid, user_library):
     # Use the updated find_book function for validation and book searching
+    user_library = kindle_model.Library(user_library)
     found_user = user_library.find_books(uuid=uuid)
-    if found_user.get("status") == "failed":
-        return found_user
+    if not found_user:
+        return {
+            "status": "failed",
+            "reason": "Book not found in the user library.",
+        }
 
     user_library.remove_book(uuid)
     return {"status": "success", "remaining_books": user_library.list_books()}

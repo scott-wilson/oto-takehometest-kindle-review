@@ -1,30 +1,16 @@
 [
-  {
-    "author": "George Orwell",
-    "country": "United Kingdom",
-    "imageLink": "images/nineteen-eighty-four.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four\n",
-    "pages": 272,
-    "title": "Nineteen Eighty-Four",
-    "year": 1949,
-    "uuid": "ba6601d9-6b30-4287-a0d4-5737ea943294",
-    "last_read_page": 0,
-    "percentage_read": 0.0,
-    "last_read_date": null
-  },
-  {
-    "author": "Sophocles",
-    "country": "Greece",
-    "imageLink": "images/oedipus-the-king.jpg",
-    "language": "Greek",
-    "link": "https://en.wikipedia.org/wiki/Oedipus_the_King\n",
-    "pages": 88,
-    "title": "Oedipus the King",
-    "year": -430,
-    "uuid": "8df99dcd-4042-40d6-b4d0-2f8615206581",
-    "last_read_page": 21,
-    "percentage_read": 23.863636363636363,
-    "last_read_date": 1694320490.436215
-  }
+    {
+        "author": "Sophocles",
+        "country": "Greece",
+        "imageLink": "images/oedipus-the-king.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Oedipus_the_King\n",
+        "pages": 88,
+        "title": "Oedipus the King",
+        "year": -430,
+        "uuid": "8df99dcd-4042-40d6-b4d0-2f8615206581",
+        "last_read_page": 21,
+        "percentage_read": 23.863636363636363,
+        "last_read_date": 1694320490.436215
+    }
 ]
