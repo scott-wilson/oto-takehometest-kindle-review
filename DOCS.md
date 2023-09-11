@@ -41,7 +41,7 @@ http://34.236.154.181:5000/
 - **Method**: `GET`
 - **Description**:Retrieves all books from the user library.
 
-#### 3. Get a Book from the Global Library:
+#### 3. Get a book from the Global Library:
 
 - **URL**: `/global/library/<key>/<value>/` or `/global/library/<key>/<value>/<target>`
 - **Method**: `GET`
@@ -51,7 +51,7 @@ http://34.236.154.181:5000/
   - `target` (Optional): Specific attribute of the book to retrieve (e.g., "title", "author").
 - **Description**: Retrieves a book from the global library based on the provided key-value pair. If a target is provided, only that attribute of the book will be returned.
 
-#### 4. Get a Book from the User Library:
+#### 4. Get a book from the User Library:
 
 - **URL**: `/user/library/<key>/<value>/` or `/user/library/<key>/<value>/<target>`
 - **Method**: `GET`
@@ -61,7 +61,7 @@ http://34.236.154.181:5000/
   - `target` (Optional): Specific attribute of the book to retrieve (e.g., "title", "author").
 - **Description**: Retrieves a book from the user's library based on the provided key-value pair. If a target is provided, only that attribute of the book will be returned.
 
-#### 3. Add a Book to the User Library:
+#### 3. Add a book to the User Library:
 
 - **URL**: `/user/library/add/<uuid>`
 - **Method**: `PUT`
@@ -69,16 +69,32 @@ http://34.236.154.181:5000/
   - `uuid`: Unique identifier of the book.
 - **Description**: Adds a book from the global library to the user's library using the provided UUID.
 
-#### 4. Add a Book to the Global Library:
+#### 4. Add a book to the Global Library:
 
 - **URL**: `/global/library/add/<uuid>`
 - **Method**: `PUT`
 - **Parameters**:
   - `uuid`: Unique identifier of the book.
   - `data` (Request Body): JSON object containing book details.
+ ``` 
+  {
+    "author": "Leo Tolstoy",
+    "country": "Russia",
+    "imageLink": "images/anna-karenina.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Anna_Karenina\n",
+    "pages": 864,
+    "title": "Anna Karenina",
+    "year": 1877,
+    "uuid": "d90234a6-cf63-4032-8651-ffce531aa424",
+    "last_read_page": 0,
+    "percentage_read": 0.0,
+    "last_read_date": 0.0
+    } 
+```
 - **Description**: Adds a new book to the global library.
 
-#### 5. Remove a Book from the User Library:
+#### 5. Remove a book from the User Library:
 
 - **URL**: `/user/library/remove/<uuid>`
 - **Method**: `DELETE`
@@ -94,7 +110,7 @@ http://34.236.154.181:5000/
   - `target` (Optional): Specific attribute of the book to retrieve (e.g., "title", "author").
 - **Description**: Retrieves the target with the highest value from the user's library. If a target is provided, only that attribute of the book will be returned.
 
-#### 7. Update the Last Read Page of a Book in the User Library:
+#### 7. Update the last read page of a book in the User Library:
 
 - **URL**: `/user/library/<uuid>/<page_number>`
 - **Method**: `POST`
