@@ -41,10 +41,10 @@ def put_book_user(uuid):
     return add_book_user(uuid, global_json, user_json)
 
 
-@book_routes.route("/global/library/add/<uuid>", methods=["PUT"])
-def put_book_global(uuid):
+@book_routes.route("/global/library/add", methods=["PUT"])
+def put_book_global():
     data = request.get_json()
-    return add_book_global(uuid, data, global_json)
+    return add_book_global(data, global_json)
 
 
 @book_routes.route("/user/library/remove/<uuid>", methods=["DELETE"])
@@ -57,6 +57,6 @@ def get_top_book_user(target=None):
     return find_top_book_user(user_json, target=target)
 
 
-@book_routes.route("/user/library/<uuid>/<page_number>", methods=["Post"])
+@book_routes.route("/user/library/<uuid>/<page_number>", methods=["POST"])
 def post_book_page_user(uuid, page_number):
     return change_book_page_user(uuid, page_number, user_json)

@@ -37,25 +37,32 @@ class Book:
     def from_json(cls, json_data: Union[str, Dict]) -> "Book":
         try:
             data = json.loads(json_data) if isinstance(json_data, str) else json_data
-            return cls(
-                author=data["author"],
-                country=data["country"],
-                image_link=data["imageLink"],
-                language=data["language"],
-                link=data["link"],
-                pages=data["pages"],
-                title=data["title"],
-                year=data["year"],
-                book_uuid=data.get("uuid", None),
-                last_read_page=data.get("last_read_page", 0),
-                percentage_read=data.get("percentage_read", 0.0),
-                last_read_date=data.get("last_read_date", 0.0),
-            )
+            return cls.from_dict(data)
         except (json.JSONDecodeError, KeyError) as e:
             raise ValueError(f"Invalid JSON data for creating a Book instance: {e}")
 
+    @classmethod
+    def from_dict(cls, data: Dict) -> "Book":
+        return cls(
+            author=data["author"],
+            country=data["country"],
+            image_link=data["imageLink"],
+            language=data["language"],
+            link=data["link"],
+            pages=data["pages"],
+            title=data["title"],
+            year=data["year"],
+            book_uuid=data.get("uuid", str(uuid.uuid4())),
+            last_read_page=data.get("last_read_page", 0),
+            percentage_read=data.get("percentage_read", 0.0),
+            last_read_date=data.get("last_read_date", 0.0),
+        )
+
     def to_json(self) -> str:
         return json.dumps(self.metadata())
+
+    def to_dict(self) -> Dict[str, Union[str, int, float]]:
+        return self.metadata()
 
     def metadata(self) -> Dict[str, Union[str, int, float]]:
         return {

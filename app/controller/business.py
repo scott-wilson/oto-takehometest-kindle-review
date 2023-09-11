@@ -65,18 +65,12 @@ def add_book_user(uuid, global_library, user_library):
     return {"status": "success", "book added": found_global}
 
 
-def add_book_global(uuid, data, global_library):
+def add_book_global(data, global_library):
     # Initialize the Library object from the kindle_model with the given user_library
     global_library = kindle_model.Library(global_library)
-    found_global = global_library.find_books(uuid=uuid)
-    if found_global:
-        return {
-            "status": "failed",
-            "reason": "Book already exists in the global library.",
-        }
     new_book = kindle_model.Book.from_dict(data)
     global_library.add_book(new_book)
-    return {"status": "success", "book added": data}
+    return {"status": "success", "book added": new_book.to_dict()}
 
 
 def subtract_book_user(uuid, user_library):
