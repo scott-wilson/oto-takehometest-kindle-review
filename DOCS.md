@@ -33,7 +33,6 @@ http://54.224.154.114:5000/
 
 - **URL**: `/global/library/
 - **Method**: `GET`
-- **Parameters**:
 - **Description**: Retrieves all books from the global library.
 
 #### 2. Get all books from the User Library:
