@@ -96,7 +96,6 @@ class ExtendedBook(Book):
         self.percentage_read = (last_read_page / self.pages) * 100 if self.pages else 0
 
 
-# Library class for managing the book collection
 class Library:
     def __init__(self, data_file: str):
         self.data_file = data_file
@@ -108,7 +107,6 @@ class Library:
                 data = json.load(f)
             books = [ExtendedBook.from_json(book) for book in data]
 
-            # Assign the processed books to self.books
             self.books = books
             updated = False
             for book in self.books:
