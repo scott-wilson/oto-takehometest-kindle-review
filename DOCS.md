@@ -8,7 +8,7 @@ Local Server:
 http://localhost:5000/
 
 AWS Server:
-http://54.224.154.114:5000/
+http://34.236.154.181:5000/
 
 ### Endpoints:
 
