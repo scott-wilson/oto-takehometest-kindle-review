@@ -1,6 +1,11 @@
 from app.model import kindle_model
 
 
+def list_books(library):
+    library = kindle_model.Library(library).list_books()
+    return library
+
+
 def find_book(key, value, library, target=None):
     # List of allowed keys for sorting
     allowed_keys = [

@@ -6,6 +6,7 @@ from app.controller.business import (
     find_top_book_user,
     change_book_page_user,
     add_book_global,
+    list_books,
 )
 
 
@@ -18,6 +19,16 @@ book_routes = Blueprint("book_routes", __name__)
 
 def register_routes(app):
     app.register_blueprint(book_routes)
+
+
+@book_routes.route("/user/library/", methods=["GET"])
+def get_all_books_global():
+    return list_books(user_json)
+
+
+@book_routes.route("/global/library/", methods=["GET"])
+def get_all_book_user():
+    return list_books(global_json)
 
 
 @book_routes.route(
