@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "a5961d18-59f8-448d-bad8-ef2a690e284d",
+		"name": "otokindle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29639327"
+	},
+	"item": [
+		{
+			"name": "Add book to user library",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/add/<uuid>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"add",
+						"<uuid>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove book to user library",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/remove/<uuid>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"remove",
+						"<uuid>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get last read book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/top/last_read_date",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"top",
+						"last_read_date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get last read page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/uuid/<uuid>/last_read_page",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"uuid",
+						"<uuid>",
+						"last_read_page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book complete metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/<key>/<value>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"<key>",
+						"<value>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a books metadata key value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/<key>/<value>/<key>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"<key>",
+						"<value>",
+						"<key>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user library book page",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/<uuid>/<page_number>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"<uuid>",
+						"<page_number>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get highest value in metadata in user library",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "54.224.154.114:5000/user/library/top/<target>",
+					"host": [
+						"54",
+						"224",
+						"154",
+						"114"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"library",
+						"top",
+						"<target>"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
