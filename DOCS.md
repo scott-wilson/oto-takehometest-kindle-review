@@ -31,13 +31,13 @@ http://54.224.154.114:5000/
 
 #### 1. Get all books from the Global Library:
 
-- **URL**: `/global/library/
+- **URL**: `/global/library/`
 - **Method**: `GET`
 - **Description**: Retrieves all books from the global library.
 
 #### 2. Get all books from the User Library:
 
-- **URL**: ``/user/library/
+- **URL**: `/user/library/`
 - **Method**: `GET`
 - **Description**:Retrieves all books from the user library.
 
