@@ -21,53 +21,53 @@ def register_routes(app):
     app.register_blueprint(book_routes)
 
 
-@book_routes.route("/user/library/", methods=["GET"])
-def get_all_books_global():
+@book_routes.route("/user/books", methods=["GET"])
+def get_all_books_user():
     return list_books(user_json)
 
 
-@book_routes.route("/global/library/", methods=["GET"])
-def get_all_book_user():
+@book_routes.route("/global/books", methods=["GET"])
+def get_all_books_global():
     return list_books(global_json)
 
 
 @book_routes.route(
-    "/global/library/<key>/<value>/", defaults={"target": None}, methods=["GET"]
+    "/global/books/search/<key>/<value>", defaults={"target": None}, methods=["GET"]
 )
-@book_routes.route("/global/library/<key>/<value>/<target>", methods=["GET"])
-def get_book_global(key, value, target=None):
+@book_routes.route("/global/books/search/<key>/<value>/<target>", methods=["GET"])
+def search_book_global(key, value, target=None):
     return find_book(key, value, global_json, target=target)
 
 
 @book_routes.route(
-    "/user/library/<key>/<value>/", defaults={"target": None}, methods=["GET"]
+    "/user/books/search/<key>/<value>", defaults={"target": None}, methods=["GET"]
 )
-@book_routes.route("/user/library/<key>/<value>/<target>", methods=["GET"])
-def get_book_user(key, value, target=None):
+@book_routes.route("/user/books/search/<key>/<value>/<target>", methods=["GET"])
+def search_book_user(key, value, target=None):
     return find_book(key, value, user_json, target=target)
 
 
-@book_routes.route("/user/library/add/<uuid>", methods=["PUT"])
-def put_book_user(uuid):
+@book_routes.route("/user/books/<uuid>", methods=["PUT"])
+def add_book_to_user_library(uuid):
     return add_book_user(uuid, global_json, user_json)
 
 
-@book_routes.route("/global/library/add", methods=["PUT"])
-def put_book_global():
+@book_routes.route("/global/books", methods=["PUT"])
+def add_book_to_global_library():
     data = request.get_json()
     return add_book_global(data, global_json)
 
 
-@book_routes.route("/user/library/remove/<uuid>", methods=["DELETE"])
-def delete_book_user(uuid):
+@book_routes.route("/user/books/<uuid>", methods=["DELETE"])
+def remove_book_from_user_library(uuid):
     return subtract_book_user(uuid, user_json)
 
 
-@book_routes.route("/user/library/top/<target>", methods=["GET"])
-def get_top_book_user(target=None):
+@book_routes.route("/user/books/top/<target>", methods=["GET"])
+def get_top_user_book(target=None):
     return find_top_book_user(user_json, target=target)
 
 
-@book_routes.route("/user/library/<uuid>/<page_number>", methods=["POST"])
-def post_book_page_user(uuid, page_number):
+@book_routes.route("/user/books/<uuid>/page/<page_number>", methods=["POST"])
+def update_book_page_for_user(uuid, page_number):
     return change_book_page_user(uuid, page_number, user_json)
