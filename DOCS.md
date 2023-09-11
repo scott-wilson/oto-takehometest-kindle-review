@@ -5,14 +5,15 @@ This API is designed for managing books in a Kindle application. The API allows 
 ### Base URL:
 
 Local Server:
-http://localhost:5000/ 
+http://localhost:5000/
 
 AWS Server:
-http://54.224.154.114:5000/ 
+http://54.224.154.114:5000/
 
 ### Endpoints:
 
 #### Keys:
+
 ```
 "pages",
 "year",
@@ -28,7 +29,20 @@ http://54.224.154.114:5000/
 "uuid"
 ```
 
-#### 1. Get a Book from the Global Library:
+#### 1. Get all books from the Global Library:
+
+- **URL**: `/global/library/
+- **Method**: `GET`
+- **Parameters**:
+- **Description**: Retrieves all books from the global library.
+
+#### 2. Get all books from the User Library:
+
+- **URL**: ``/user/library/
+- **Method**: `GET`
+- **Description**:Retrieves all books from the user library.
+
+#### 3. Get a Book from the Global Library:
 
 - **URL**: `/global/library/<key>/<value>/` or `/global/library/<key>/<value>/<target>`
 - **Method**: `GET`
@@ -38,7 +52,7 @@ http://54.224.154.114:5000/
   - `target` (Optional): Specific attribute of the book to retrieve (e.g., "title", "author").
 - **Description**: Retrieves a book from the global library based on the provided key-value pair. If a target is provided, only that attribute of the book will be returned.
 
-#### 2. Get a Book from the User Library:
+#### 4. Get a Book from the User Library:
 
 - **URL**: `/user/library/<key>/<value>/` or `/user/library/<key>/<value>/<target>`
 - **Method**: `GET`
@@ -89,4 +103,3 @@ http://54.224.154.114:5000/
   - `uuid`: Unique identifier of the book.
   - `page_number`: The page number to update.
 - **Description**: Updates the last read page number for a specific book in the user's library.
-
