@@ -1,16 +1,16 @@
 [
-  {
-    "author": "Sophocles",
-    "country": "Greece",
-    "imageLink": "images/oedipus-the-king.jpg",
-    "language": "Greek",
-    "link": "https://en.wikipedia.org/wiki/Oedipus_the_King\n",
-    "pages": 88,
-    "title": "Oedipus the King",
-    "year": -430,
-    "uuid": "8df99dcd-4042-40d6-b4d0-2f8615206581",
-    "last_read_page": 21,
-    "percentage_read": 23.863636363636363,
-    "last_read_date": 1694320490.436215
-  }
+    {
+        "author": "Sophocles",
+        "country": "Greece",
+        "imageLink": "images/oedipus-the-king.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Oedipus_the_King\n",
+        "pages": 88,
+        "title": "Oedipus the King",
+        "year": -430,
+        "uuid": "8df99dcd-4042-40d6-b4d0-2f8615206581",
+        "last_read_page": 21,
+        "percentage_read": 23.863636363636363,
+        "last_read_date": 1694320490.436215
+    }
 ]
