@@ -68,6 +68,11 @@ def get_top_user_book(target=None):
     return find_top_book_user(user_json, target=target)
 
 
+@book_routes.route("/user/books/last_read", methods=["GET"])
+def get_last_user_book():
+    return find_top_book_user(user_json, "last_read_date")
+
+
 @book_routes.route("/user/books/<uuid>/page/<page_number>", methods=["POST"])
 def update_book_page_for_user(uuid, page_number):
     return change_book_page_user(uuid, page_number, user_json)
