@@ -41,7 +41,8 @@ class BookRoutesTestCase(unittest.TestCase):
         response = self.client.put("/user/books/82f0ea02-de55-4b2c-abd0-171395b69193")
         self.assertEqual(response.status_code, 200)
 
-    def test_add_book_to_global_library(self):        mock_data = {
+    def test_add_book_to_global_library(self):
+        mock_data = {
             "author": "Test",
             "country": "Test",
             "imageLink": "Test",
