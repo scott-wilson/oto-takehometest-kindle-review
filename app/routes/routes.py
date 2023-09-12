@@ -15,6 +15,7 @@ user_json = "user_library/user_library.json"
 
 
 book_routes = Blueprint("book_routes", __name__)
+# Type hints, please!
 
 
 def register_routes(app):
@@ -23,6 +24,8 @@ def register_routes(app):
 
 @book_routes.route("/user/books", methods=["GET"])
 def get_all_books_user():
+    # Have the REST api functions be responsible for formatting the data for the REST
+    # response.
     return list_books(user_json)
 
 
@@ -55,6 +58,8 @@ def add_book_to_user_library(uuid):
 @book_routes.route("/global/books", methods=["PUT"])
 def add_book_to_global_library():
     data = request.get_json()
+    # We don't know the shape of the data in the request. This should be documented in
+    # some way.
     return add_book_global(data, global_json)
 
 

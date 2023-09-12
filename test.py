@@ -3,6 +3,17 @@ from flask import Flask, json
 from app.routes import routes
 
 
+# Make sure the tests validate the following:
+# - All the success conditions.
+# - All the failure conditions.
+# - All the edge cases.
+
+# I usually format my test argument name like this:
+# test_<function_name>_<condition>_<expected_result>_<reason>
+# For example, test_add_book_to_user_library_success.
+# Or, test_add_book_to_user_library_failure_book_does_not_exist.
+
+
 class BookRoutesTestCase(unittest.TestCase):
     def setUp(self):
         self.app = Flask(__name__)

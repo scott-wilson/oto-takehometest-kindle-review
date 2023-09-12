@@ -4,6 +4,7 @@ from typing import Union, Dict, Optional, List
 import uuid
 
 
+# This could make use of dataclasses. EIther that, or use a library like pydantic.
 class Book:
     def __init__(
         self,
@@ -61,10 +62,14 @@ class Book:
     def to_json(self) -> str:
         return json.dumps(self.metadata())
 
+    # This code uses 3.7 compatible type hints, but the app/controller/business.py is
+    # using 3.9+. Should be consistent.
     def to_dict(self) -> Dict[str, Union[str, int, float]]:
         return self.metadata()
 
     def metadata(self) -> Dict[str, Union[str, int, float]]:
+        # Type hint is failing because the union does not contain all of the possible
+        # types. Consider having the return type be a TypedDict.
         return {
             "author": self.author,
             "country": self.country,
@@ -81,6 +86,7 @@ class Book:
         }
 
 
+# What's ExtendedBook for? Why not just Book?
 class ExtendedBook(Book):
     def update_last_read_date(self) -> None:
         """Update the last read date."""
@@ -110,10 +116,15 @@ class Library:
             self.books = books
             updated = False
             for book in self.books:
+                # Use is instead of ==.
+                # When would the book not have a UUID?
                 if book.uuid == None:
+                    # This can either be a book class or an extended book class. Only
+                    # the extended book class has the update_uuid method.
                     book.update_uuid()
                     updated = True
 
+            # Use is instead of ==. Or just `if updated:`.
             if updated == True:
                 self.save_library()
             return self.books
@@ -126,6 +137,9 @@ class Library:
 
     def add_book(self, book: ExtendedBook) -> None:
         self.books.append(book)
+        # Is it a good idea to save here? What if the user wants to add multiple books?
+        # I'd suggest having the save be done outside of this method and make it
+        # explicit.
         self.save_library()
 
     def remove_book(self, uuid: str) -> None:
@@ -136,6 +150,10 @@ class Library:
         return [book.metadata() for book in self.books]
 
     def find_books(self, **kwargs) -> List[Dict]:
+        # I personally don't like the use of kwargs like this. It would be better to do
+        # something like...
+        # `find_books(self, query: dict[str, Any]) -> list[dict[str, Any]]`
+        # Although, if you can avoid using any, that would be better.
         found_books = []
         for book in self.books:
             if all(getattr(book, key, None) == value for key, value in kwargs.items()):
@@ -145,6 +163,8 @@ class Library:
     def update_reading_status(self, uuid: str, last_read_page: int) -> None:
         for book in self.books:
             if book.uuid == uuid:
+                # This can either be a book class or an extended book class. Only
+                # the extended book class has the update_last_read_* methods.
                 book.update_last_read_date()
                 book.update_last_read_page(int(last_read_page))
                 self.save_library()
