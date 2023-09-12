@@ -72,6 +72,7 @@ http://localhost:5000/
 - **Method**: `PUT`
 - **Parameters**:
   - `data` (Request Body): JSON object containing book details.
+
 ```
 {
   "author": "Leo Tolstoy",
@@ -87,6 +88,7 @@ http://localhost:5000/
   "last_read_date": 0.0
 }
 ```
+
 - **Description**: Adds a new book to the global library.
 
 #### 7. Remove a book from the User Library:
@@ -114,4 +116,8 @@ http://localhost:5000/
   - `page_number`: The page number to update.
 - **Description**: Updates the last read page number for a specific book in the user's library.
 
-  
+#### 9. Get the last read book from the User Library:
+
+- **URL**: `/user/books/last_read`
+- **Method**: `GET`
+- **Description**: Gets the last read book in the user's library.
